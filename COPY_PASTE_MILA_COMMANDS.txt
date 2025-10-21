@@ -1,0 +1,123 @@
+################################################################################
+# COPY AND PASTE THESE COMMANDS TO LAUNCH CONSPEC ON MILA CLUSTER
+################################################################################
+
+# ==============================================================================
+# STEP 1: SSH to Mila (Run this on your local machine)
+# ==============================================================================
+
+ssh -J mila mandanas@tamia.alliancecan.ca
+
+# OR if that doesn't work, try:
+# ssh samieima@mila.quebec
+
+# Once you're logged into Mila, continue with the commands below:
+
+
+# ==============================================================================
+# STEP 2: Clone/Update Repository (Run on Mila)
+# ==============================================================================
+
+cd ~
+git clone https://github.com/mandanasmi/MemorySchema.git
+
+# If already cloned, update instead:
+# cd ~/MemorySchema && git pull origin main
+
+
+# ==============================================================================
+# STEP 3: Navigate to Project
+# ==============================================================================
+
+cd ~/MemorySchema
+
+
+# ==============================================================================
+# STEP 4: Load Modules
+# ==============================================================================
+
+module load python/3.9
+module load cuda/11.3
+
+
+# ==============================================================================
+# STEP 5: Create Virtual Environment
+# ==============================================================================
+
+python3.9 -m venv venv
+source venv/bin/activate
+
+
+# ==============================================================================
+# STEP 6: Install Dependencies
+# ==============================================================================
+
+pip install --upgrade pip
+pip install -r requirements.txt
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+
+# ==============================================================================
+# STEP 7: Login to Wandb
+# ==============================================================================
+
+wandb login
+# When prompted, paste your API key from: https://wandb.ai/authorize
+# Your dashboard: https://wandb.ai/mandanasmi/schema-learning
+
+
+# ==============================================================================
+# STEP 8: Create Directories
+# ==============================================================================
+
+mkdir -p logs checkpoints figures
+
+
+# ==============================================================================
+# STEP 9: Make Scripts Executable
+# ==============================================================================
+
+chmod +x run_conspec_mila.sh setup_and_run_mila.sh setup_wandb.sh setup_mila.sh
+
+
+# ==============================================================================
+# STEP 10: Submit the Job
+# ==============================================================================
+
+sbatch run_conspec_mila.sh
+
+# You should see: "Submitted batch job XXXXXX"
+
+
+# ==============================================================================
+# STEP 11: Monitor the Job
+# ==============================================================================
+
+# Check job status
+squeue -u samieima
+
+# View live output (replace JOBID with actual number)
+tail -f logs/conspec_JOBID.out
+
+# View errors (if any)
+tail -f logs/conspec_JOBID.err
+
+
+# ==============================================================================
+# VIEW RESULTS
+# ==============================================================================
+
+# Wandb Dashboard: https://wandb.ai/mandanasmi/schema-learning
+# GitHub Repository: https://github.com/mandanasmi/MemorySchema
+
+
+################################################################################
+# THAT'S IT! Your ConSpec training is now running on Mila GPUs!
+################################################################################
+
+# To cancel the job later:
+# scancel JOBID
+
+# To check detailed job info:
+# scontrol show job JOBID
+
