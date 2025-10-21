@@ -98,12 +98,12 @@ class BaseKeyDoorGoalEnv(MiniGridEnv):
 
 class SingleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
     """
-    Environment 1: One key, one door, one goal.
-    Pick up the key to open the door, then reach the goal.
+    Environment 1: Chain Graph - Blue key → Blue door → Green goal
+    Sequential dependency: must pick up key, then open door, then reach goal.
     """
     
     def _gen_mission(self):
-        return "Pick up the key, open the door, and reach the goal"
+        return "Chain graph: Pick up blue key, open blue door, then reach green goal"
     
     def _gen_grid(self, width, height):
         self.grid = Grid(width, height)
@@ -118,48 +118,55 @@ class SingleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
         # Place agent in left room
         self._place_agent(1, height - 2, 0)
         
-        # Place key in left room
+        # Place blue key in left room (first in chain)
         self._place_key(2, height // 2, "blue")
         
-        # Place door in middle wall
+        # Place blue door in middle wall (second in chain)
         self._place_door(width // 2, height // 2, "blue", is_locked=True)
         
-        # Place goal in farthest corner of right room
+        # Place green goal in farthest corner of right room (final in chain)
         self._place_goal(width - 2, height - 2)
 
 
 class DoubleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
     """
-    Environment 2: Two keys, two doors, one goal.
-    Blue key opens blue door, green key opens green door.
-    Both doors must be opened to reach the goal.
+    Environment 2: Parallel Graph - Blue key → Blue door AND Green key → Green door
+    Parallel dependencies: agent can explore both paths simultaneously.
+    Both doors must be opened to reach the final goal.
     """
     
     def _gen_mission(self):
-        return "Pick up the blue key, open the blue door, pick up the green key, open the green door, and reach the goal"
+        return "Parallel graph: Open both blue and green doors to reach the goal"
     
     def _gen_grid(self, width, height):
         self.grid = Grid(width, height)
         
-        # Create room layout with 3 rooms
-        room_width = self._create_room_layout(width, height, 3)
+        # Create outer walls
+        self.grid.wall_rect(0, 0, width, height)
+        
+        # Create a single wall in the middle to create 2 rooms
+        wall_x = width // 2
+        
+        # Middle wall with two doors (blue and green side by side)
+        for y in range(1, height - 1):
+            self.grid.set(wall_x, y, Wall())
         
         # Place agent in first room
         self._place_agent(1, height - 2, 0)
         
-        # Place blue key in first room (before blue door)
-        self._place_key(1, height // 2, "blue")
+        # Place blue key in first room (left side)
+        self._place_key(2, height // 2 - 1, "blue")
         
-        # Place blue door in first wall
-        self._place_door(room_width, height // 2, "blue", is_locked=True)
+        # Place green key in first room (right side)
+        self._place_key(2, height // 2 + 1, "green")
         
-        # Place green key in second room (farther from doors)
-        self._place_key(room_width + 1, height - 2, "green")
+        # Place blue door in middle wall (left side)
+        self._place_door(wall_x, height // 2 - 1, "blue", is_locked=True)
         
-        # Place green door in second wall
-        self._place_door(2 * room_width, height // 2, "green", is_locked=True)
+        # Place green door in middle wall (right side)
+        self._place_door(wall_x, height // 2 + 1, "green", is_locked=True)
         
-        # Place goal in farthest corner of third room
+        # Place goal in farthest corner of second room (requires both doors)
         self._place_goal(width - 2, height - 2)
 
 

@@ -67,22 +67,22 @@ MemorySchema/
 
 ### **Modular Key-Door-Goal Environments**
 
-1. **Single Key-Door-Goal Environment** (`single`)
-   - One blue key, one blue door, one green goal
-   - Agent must pick up the key to open the door and reach the goal
-   - 10x10 grid with goal in the farthest corner
+1. **Single Key-Door-Goal Environment** (`single`) - **Chain Graph**
+   - Blue key → Blue door → Green goal (sequential dependency)
+   - Agent must pick up the key, then open the door, then reach the goal
+   - 10x10 grid representing a linear dependency chain
 
-2. **Double Key-Door-Goal Environment** (`double`)
-   - Blue key and green key, blue door and green door, one green goal
-   - Agent must collect both keys to open both doors to reach the goal
-   - 10x10 grid with 3 rooms, keys placed strategically near their corresponding doors
-   - Blue key -> Blue door then green 
+2. **Double Key-Door-Goal Environment** (`double`) - **Parallel Graph**
+   - Blue key → Blue door AND Green key → Green door (parallel dependencies)
+   - Agent can explore both paths simultaneously
+   - Both doors must be opened to reach the final goal
+   - 10x10 grid with 3 rooms, allowing parallel exploration
 
-3. **Triple Key-Door-Goal Environment** (`triple`)
+3. **Triple Key-Door-Goal Environment** (`triple`) - **Sequential Graph**
    - Blue and green keys in first room, purple key in second room
    - Green door separates first and second rooms, purple door separates second and third rooms
    - Two goals: green goal in second room, teal goal in third room
-   - Sequential progression: blue+green keys -> green door → green goal, purple door → teal goal
+   - Sequential progression: blue+green keys → green door → green goal, purple door → teal goal
    - 10x10 grid with 3-room layout
 
 ## Visualization
