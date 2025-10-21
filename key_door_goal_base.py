@@ -98,7 +98,7 @@ class BaseKeyDoorGoalEnv(MiniGridEnv):
 
 class SingleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
     """
-    Environment 1: Chain Graph - Blue key → Blue door → Green goal
+    Environment 1: Chain Graph - Blue key  Blue door  Green goal
     Sequential dependency: must pick up key, then open door, then reach goal.
     """
     
@@ -130,7 +130,7 @@ class SingleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
 
 class DoubleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
     """
-    Environment 2: Parallel Graph - Blue key → Blue door AND Green key → Green door
+    Environment 2: Parallel Graph - Blue key  Blue door AND Green key  Green door
     Parallel dependencies: agent can explore both paths simultaneously.
     Both doors must be opened to reach the final goal.
     """
@@ -260,6 +260,6 @@ if __name__ == "__main__":
             print(f"   Observation shape: {obs['image'].shape}")
             env.close()
         except Exception as e:
-            print(f"❌ {env_type} environment failed: {e}")
+            print(f" {env_type} environment failed: {e}")
     
-    print("\n🎉 All key-door-goal environments tested!")
+    print("\n All key-door-goal environments tested!")

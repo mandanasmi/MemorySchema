@@ -155,15 +155,15 @@ The setup includes:
 
 ```
 ~/MemorySchema/
-├── venv/                    # Virtual environment
-├── environment.py           # Main environment
-├── demo.py                  # Demo script
-├── structured_env.py        # Structured environment
-├── structured_visualizer.py # Visualization tools
-├── requirements.txt         # Dependencies
-├── setup_mila.sh           # Setup script
-├── activate_env.sh         # Quick activation
-└── run_demo.sh             # Quick run script
+ venv/                    # Virtual environment
+ environment.py           # Main environment
+ demo.py                  # Demo script
+ structured_env.py        # Structured environment
+ structured_visualizer.py # Visualization tools
+ requirements.txt         # Dependencies
+ setup_mila.sh           # Setup script
+ activate_env.sh         # Quick activation
+ run_demo.sh             # Quick run script
 ```
 
 ## Troubleshooting

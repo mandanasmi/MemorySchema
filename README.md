@@ -49,17 +49,17 @@ chmod +x setup_mila.sh
 
 ```
 MemorySchema/
-├── key_door_goal_base.py          # Modular environment system with base class
-├── key_door_goal_visualizer.py    # Advanced visualization tools with custom shapes
-├── key_door_goal_demo.py          # Interactive demo script
-├── test_key_door_goal.py          # Test suite
-├── requirements.txt               # Python dependencies
-├── setup_mila.sh                 # Mila cluster setup script
-├── MILA_SETUP.md                 # Mila cluster documentation
-├── SETUP.md                      # Local setup instructions
-├── LICENSE                       # MIT License
-└── figures/                      # Generated visualizations
-    ├── all_three_environments_corrected.png
+ key_door_goal_base.py          # Modular environment system with base class
+ key_door_goal_visualizer.py    # Advanced visualization tools with custom shapes
+ key_door_goal_demo.py          # Interactive demo script
+ test_key_door_goal.py          # Test suite
+ requirements.txt               # Python dependencies
+ setup_mila.sh                 # Mila cluster setup script
+ MILA_SETUP.md                 # Mila cluster documentation
+ SETUP.md                      # Local setup instructions
+ LICENSE                       # MIT License
+ figures/                      # Generated visualizations
+     all_three_environments_corrected.png
     
 ```
 
@@ -68,12 +68,12 @@ MemorySchema/
 ### **Modular Key-Door-Goal Environments**
 
 1. **Single Key-Door-Goal Environment** (`single`) - **Chain Graph**
-   - Blue key → Blue door → Green goal (sequential dependency)
+   - Blue key  Blue door  Green goal (sequential dependency)
    - Agent must pick up the key, then open the door, then reach the goal
    - 10x10 grid representing a linear dependency chain
 
 2. **Double Key-Door-Goal Environment** (`double`) - **Parallel Graph**
-   - Blue key → Blue door AND Green key → Green door (parallel dependencies)
+   - Blue key  Blue door AND Green key  Green door (parallel dependencies)
    - Agent can explore both paths simultaneously
    - Both doors must be opened to reach the final goal
    - 10x10 grid with 3 rooms, allowing parallel exploration
@@ -82,7 +82,7 @@ MemorySchema/
    - Blue and green keys in first room, purple key in second room
    - Green door separates first and second rooms, purple door separates second and third rooms
    - Two goals: green goal in second room, teal goal in third room
-   - Sequential progression: blue+green keys → green door → green goal, purple door → teal goal
+   - Sequential progression: blue+green keys  green door  green goal, purple door  teal goal
    - 10x10 grid with 3-room layout
 
 ## Visualization

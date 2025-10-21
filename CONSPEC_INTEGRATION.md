@@ -52,11 +52,11 @@ ConSpec is based on the paper "Contrastive Retrospection: Learning from Success 
 ConSpec works with all three of our key-door-goal environments:
 
 1. **Single Environment (Chain Graph)**
-   - Blue key → Blue door → Green goal
+   - Blue key  Blue door  Green goal
    - Sequential dependency structure
 
 2. **Double Environment (Parallel Graph)**
-   - Blue key → Blue door AND Green key → Green door
+   - Blue key  Blue door AND Green key  Green door
    - Parallel dependency structure with equal priority
 
 3. **Triple Environment (Sequential Graph)**
@@ -117,11 +117,11 @@ python train_conspec.py
 
 The integration is successful and demonstrates:
 
-- ✅ ConSpec successfully processes MiniGrid observations
-- ✅ Intrinsic rewards are computed based on observation novelty
-- ✅ Memory system stores success and failure trajectories
-- ✅ Works on all three graph dependency environments
-- ✅ Compatible with different environment sizes and complexities
+-  ConSpec successfully processes MiniGrid observations
+-  Intrinsic rewards are computed based on observation novelty
+-  Memory system stores success and failure trajectories
+-  Works on all three graph dependency environments
+-  Compatible with different environment sizes and complexities
 
 ## Next Steps
 

@@ -19,7 +19,7 @@ fi
 # Check if wandb is logged in
 if ! wandb verify &> /dev/null; then
     echo ""
-    echo "⚠️  Wandb not configured. Please run:"
+    echo "  Wandb not configured. Please run:"
     echo "    wandb login"
     echo "    (Get your API key from https://wandb.ai/authorize)"
     echo ""
@@ -34,7 +34,7 @@ fi
 chmod +x run_conspec_mila.sh
 
 echo ""
-echo "✅ Setup complete!"
+echo " Setup complete!"
 echo ""
 echo "To submit the job to Mila cluster:"
 echo "    sbatch run_conspec_mila.sh"

@@ -1,7 +1,7 @@
 # Submit ConSpec Training to Mila Cluster
 
 ## Current Status
-⚠️ **No jobs running on Mila yet** - You need to submit the job from the Mila cluster
+ **No jobs running on Mila yet** - You need to submit the job from the Mila cluster
 
 ## Step-by-Step Guide to Submit Job on Mila
 

@@ -20,16 +20,16 @@ def test_environments():
     env_types = ["single", "double", "triple"]
     
     for env_type in env_types:
-        print(f"\n🔍 Testing {env_type.upper()} environment...")
+        print(f"\n Testing {env_type.upper()} environment...")
         try:
             # Create environment
             env = create_key_door_goal_env(env_type)
             obs, info = env.reset()
             
             print(f"   Environment created successfully")
-            print(f"  📏 Grid size: {env.width}x{env.height}")
-            print(f"  🎯 Mission: {env.mission}")
-            print(f"  👁️  Observation shape: {obs['image'].shape}")
+            print(f"   Grid size: {env.width}x{env.height}")
+            print(f"   Mission: {env.mission}")
+            print(f"    Observation shape: {obs['image'].shape}")
             
             # Test a few steps
             for step in range(3):
@@ -43,7 +43,7 @@ def test_environments():
         except Exception as e:
             print(f"   {env_type} environment test failed: {e}")
     
-    print("\n🎉 Environment testing completed!")
+    print("\n Environment testing completed!")
 
 def test_visualizer():
     """Test the visualizer"""
@@ -58,7 +58,7 @@ def test_visualizer():
         env = create_key_door_goal_env("single", size=8)
         obs, info = env.reset()
         
-        print("  🖼️  Testing basic environment visualization...")
+        print("  ��  Testing basic environment visualization...")
         # Note: We won't actually show the plot in automated testing
         # visualizer.visualize_env(env, "Test Environment")
         print("   Visualization test passed")
@@ -76,7 +76,7 @@ def main():
     test_environments()
     test_visualizer()
     
-    print("\n📋 Test Summary:")
+    print("\n Test Summary:")
     print("   All environments created successfully")
     print("   All environments can be reset and stepped")
     print("   Visualizer works correctly")

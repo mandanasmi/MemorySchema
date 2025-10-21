@@ -29,7 +29,7 @@ wandb login
 Get your API key from: https://wandb.ai/authorize
 
 **Your wandb configuration:**
-- Entity (username): `samieima@mila.quebec` → `samieima`
+- Entity (username): `samieima@mila.quebec`  `samieima`
 - Project: `schema-learning`
 - GitHub: `mandanasmi`
 - Dashboard URL: https://wandb.ai/mandanasmi/schema-learning
@@ -55,7 +55,7 @@ The training script will:
 3. **Save checkpoints**: Every 500 episodes + best model for each configuration
 4. **Resume training**: Can resume from checkpoints if interrupted
 5. **Log to wandb**: All metrics tracked in Weights & Biases
-6. **Total configurations**: 3 environments × 5 prototype values = 15 training runs
+6. **Total configurations**: 3 environments � 5 prototype values = 15 training runs
 
 ## Monitoring Your Job
 
@@ -240,16 +240,16 @@ exit
 
 ```
 MemorySchema/
-├── checkpoints/              # Saved models and checkpoints
-│   ├── checkpoint_*.pth      # Training checkpoints
-│   ├── best_model_*.pth      # Best models
-│   └── training_summary.json # Results summary
-├── logs/                     # Slurm job logs
-│   ├── conspec_*.out         # Standard output
-│   └── conspec_*.err         # Error output
-├── train_conspec_mila.py     # Main training script
-├── run_conspec_mila.sh       # Slurm batch script
-└── setup_and_run_mila.sh     # Setup helper script
+ checkpoints/              # Saved models and checkpoints
+�    checkpoint_*.pth      # Training checkpoints
+�    best_model_*.pth      # Best models
+�    training_summary.json # Results summary
+ logs/                     # Slurm job logs
+�    conspec_*.out         # Standard output
+�    conspec_*.err         # Error output
+ train_conspec_mila.py     # Main training script
+ run_conspec_mila.sh       # Slurm batch script
+ setup_and_run_mila.sh     # Setup helper script
 ```
 
 ## Support

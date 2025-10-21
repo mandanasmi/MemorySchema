@@ -53,7 +53,7 @@ wandb login
 wandb verify
 
 # Check Python can import everything
-python -c "import torch; import wandb; from key_door_goal_base import create_key_door_goal_env; print('✅ All imports successful')"
+python -c "import torch; import wandb; from key_door_goal_base import create_key_door_goal_env; print(' All imports successful')"
 
 
 # ============================================

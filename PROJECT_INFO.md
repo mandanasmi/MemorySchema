@@ -21,20 +21,20 @@
 
 ### Environments
 1. **Single Environment (Chain Graph)**
-   - Blue key → Blue door → Green goal
+   - Blue key  Blue door  Green goal
    - Tests sequential dependency learning
 
 2. **Double Environment (Parallel Graph)**
-   - Blue key → Blue door AND Green key → Green door → Goal
+   - Blue key  Blue door AND Green key  Green door  Goal
    - Tests parallel exploration with equal priority
 
 3. **Triple Environment (Sequential Graph)**
-   - Blue/Green keys → Green door → Green goal + Purple key → Purple door → Purple goal
+   - Blue/Green keys  Green door  Green goal + Purple key  Purple door  Purple goal
    - Tests complex multi-stage dependencies
 
 ### Hyperparameter Search
 - **Prototypes tested:** 3, 4, 5, 6, 7
-- **Total configurations:** 15 (3 environments × 5 prototype values)
+- **Total configurations:** 15 (3 environments � 5 prototype values)
 - **Episodes per config:** 5000 (configurable)
 
 ## Quick Start Commands
@@ -71,27 +71,27 @@ tail -f logs/conspec_*.out
 
 ## Key Features
 
-✅ **Automatic Checkpointing** - Saves every 500 episodes  
-✅ **Resume Capability** - Never start from scratch  
-✅ **Wandb Integration** - Real-time experiment tracking  
-✅ **Hyperparameter Search** - Finds optimal prototype count  
-✅ **Best Model Saving** - Saves top-performing models  
-✅ **Memory Preservation** - ConSpec success/failure buffers saved  
+ **Automatic Checkpointing** - Saves every 500 episodes  
+ **Resume Capability** - Never start from scratch  
+ **Wandb Integration** - Real-time experiment tracking  
+ **Hyperparameter Search** - Finds optimal prototype count  
+ **Best Model Saving** - Saves top-performing models  
+ **Memory Preservation** - ConSpec success/failure buffers saved  
 
 ## File Structure
 
 ```
 MemorySchema/
-├── checkpoints/                  # Saved models and checkpoints
-├── logs/                         # Slurm job logs
-├── figures/                      # Visualizations
-├── train_conspec_mila.py         # Main training script (Mila)
-├── train_conspec_wandb.py        # Wandb training script
-├── run_conspec_mila.sh           # Slurm batch script
-├── setup_wandb.sh                # Wandb setup helper
-├── MILA_CONSPEC_INSTRUCTIONS.md  # Complete usage guide
-├── WANDB_QUICK_REFERENCE.md      # Wandb reference
-└── README.md                     # Project README
+ checkpoints/                  # Saved models and checkpoints
+ logs/                         # Slurm job logs
+ figures/                      # Visualizations
+ train_conspec_mila.py         # Main training script (Mila)
+ train_conspec_wandb.py        # Wandb training script
+ run_conspec_mila.sh           # Slurm batch script
+ setup_wandb.sh                # Wandb setup helper
+ MILA_CONSPEC_INSTRUCTIONS.md  # Complete usage guide
+ WANDB_QUICK_REFERENCE.md      # Wandb reference
+ README.md                     # Project README
 ```
 
 ## Output Files
@@ -178,4 +178,4 @@ Wandb: https://wandb.ai/mandanasmi/schema-learning
 ---
 
 **Last Updated:** 2025-10-21  
-**Status:** ✅ Ready for Training
+**Status:**  Ready for Training

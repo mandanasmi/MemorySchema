@@ -167,7 +167,7 @@ def test_optimal_policy(num_episodes=20, device='cpu', visualize=True):
     avg_reward = np.mean(test_rewards)
     avg_length = np.mean(test_lengths)
     
-    print(f"\n📊 OPTIMAL POLICY TEST RESULTS:")
+    print(f"\n OPTIMAL POLICY TEST RESULTS:")
     print(f"   Success rate: {test_success_rate:.2f} ({test_successes}/{num_episodes})")
     print(f"   Average reward: {avg_reward:.2f}")
     print(f"   Average length: {avg_length:.1f}")
@@ -175,11 +175,11 @@ def test_optimal_policy(num_episodes=20, device='cpu', visualize=True):
     print(f"   Failed episodes: {len(failed_episodes)}")
     
     if test_success_rate >= 0.8:
-        print("✅ Policy is performing excellently!")
+        print(" Policy is performing excellently!")
     elif test_success_rate >= 0.6:
-        print("✅ Policy is performing well!")
+        print(" Policy is performing well!")
     else:
-        print("⚠️  Policy may need more training")
+        print("  Policy may need more training")
     
     # Visualize episodes if requested
     if visualize and (successful_episodes or failed_episodes):
@@ -308,7 +308,7 @@ def demonstrate_optimal_policy(device='cpu'):
         step += 1
         
         if reward > 0:
-            print(f"🎉 SUCCESS! Reward: {reward}")
+            print(f" SUCCESS! Reward: {reward}")
             break
         elif done:
             print(f"Episode ended. Final reward: {reward}")
@@ -316,9 +316,9 @@ def demonstrate_optimal_policy(device='cpu'):
     env.close()
     
     if reward > 0:
-        print("✅ Optimal policy successfully completed the task!")
+        print(" Optimal policy successfully completed the task!")
     else:
-        print("❌ Optimal policy failed to complete the task")
+        print(" Optimal policy failed to complete the task")
 
 
 def main():
@@ -336,14 +336,14 @@ def main():
         # Demonstrate step by step
         demonstrate_optimal_policy(device)
         
-        print(f"\n🎯 SUMMARY:")
+        print(f"\n SUMMARY:")
         print(f"   Policy success rate: {test_results['test_success_rate']:.2f}")
         print(f"   Average episode length: {np.mean(test_results['test_lengths']):.1f}")
         print(f"   Successful episodes: {len(test_results['successful_episodes'])}")
         print(f"   Failed episodes: {len(test_results['failed_episodes'])}")
         
     except FileNotFoundError as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         print("Please run train_and_analyze_conspec.py first to train and save the optimal policy.")
 
 

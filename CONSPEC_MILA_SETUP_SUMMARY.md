@@ -1,4 +1,4 @@
-# ConSpec Training on Mila Cluster - Setup Complete! ✅
+# ConSpec Training on Mila Cluster - Setup Complete! 
 
 ## What Has Been Created
 
@@ -50,7 +50,7 @@ sbatch run_conspec_mila.sh
 ### Experiments
 - **3 Environments**: Single (Chain), Double (Parallel), Triple (Sequential)
 - **5 Prototype Values**: 3, 4, 5, 6, 7 prototypes
-- **Total Configurations**: 15 (3 envs × 5 prototypes)
+- **Total Configurations**: 15 (3 envs � 5 prototypes)
 - **Episodes per Config**: 5000 (configurable)
 
 ### Checkpointing
@@ -62,12 +62,12 @@ sbatch run_conspec_mila.sh
 ### Output Files (in `checkpoints/` directory)
 ```
 checkpoints/
-├── checkpoint_single_proto3_latest.pth       # Latest checkpoint for resumption
-├── checkpoint_single_proto3_ep500.pth        # Periodic checkpoint
-├── checkpoint_single_proto3_ep1000.pth       # Periodic checkpoint
-├── best_model_single_proto3.pth              # Best model for this config
-├── checkpoint_single_proto4_latest.pth       # ... and so on for all configs
-├── training_summary.json                     # Summary of all results
+ checkpoint_single_proto3_latest.pth       # Latest checkpoint for resumption
+ checkpoint_single_proto3_ep500.pth        # Periodic checkpoint
+ checkpoint_single_proto3_ep1000.pth       # Periodic checkpoint
+ best_model_single_proto3.pth              # Best model for this config
+ checkpoint_single_proto4_latest.pth       # ... and so on for all configs
+ training_summary.json                     # Summary of all results
 ```
 
 ## Monitoring Training
@@ -276,12 +276,12 @@ Edit `run_conspec_mila.sh`:
 
 ## Summary
 
-✅ **Checkpoint system**: Saves every 500 episodes + best models  
-✅ **Resume capability**: Auto-resumes from latest checkpoint  
-✅ **Hyperparameter search**: Tests 3-7 prototypes per environment  
-✅ **Wandb integration**: Real-time experiment tracking  
-✅ **Mila-ready**: Slurm scripts configured for cluster  
-✅ **15 total experiments**: 3 environments × 5 prototype values  
-✅ **Production-ready**: Can run for days without data loss  
+ **Checkpoint system**: Saves every 500 episodes + best models  
+ **Resume capability**: Auto-resumes from latest checkpoint  
+ **Hyperparameter search**: Tests 3-7 prototypes per environment  
+ **Wandb integration**: Real-time experiment tracking  
+ **Mila-ready**: Slurm scripts configured for cluster  
+ **15 total experiments**: 3 environments � 5 prototype values  
+ **Production-ready**: Can run for days without data loss  
 
-Your ConSpec training system is now fully configured for the Mila cluster with automatic checkpointing, hyperparameter search, and experiment tracking! 🚀
+Your ConSpec training system is now fully configured for the Mila cluster with automatic checkpointing, hyperparameter search, and experiment tracking! 

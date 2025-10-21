@@ -10,9 +10,9 @@ echo ""
 if ! python -c "import wandb" &> /dev/null; then
     echo "Installing wandb..."
     pip install wandb
-    echo "✅ Wandb installed"
+    echo " Wandb installed"
 else
-    echo "✅ Wandb already installed"
+    echo " Wandb already installed"
 fi
 
 echo ""
@@ -24,7 +24,7 @@ echo ""
 
 # Check if already logged in
 if wandb verify &> /dev/null; then
-    echo "✅ Already logged in to wandb"
+    echo " Already logged in to wandb"
     wandb verify
 else
     echo "Please login to Weights & Biases:"

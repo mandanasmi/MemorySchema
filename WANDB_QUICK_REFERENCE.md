@@ -2,7 +2,7 @@
 
 ## Your Wandb Configuration
 
-**Entity (Username):** `samieima@mila.quebec` → `samieima`  
+**Entity (Username):** `samieima@mila.quebec`  `samieima`  
 **Project Name:** `schema-learning`  
 **GitHub:** `mandanasmi`  
 **Dashboard URL:** https://wandb.ai/mandanasmi/schema-learning  
@@ -45,8 +45,8 @@ All training runs will automatically log to wandb:
 
 ### Per Environment-Prototype Configuration
 Each combination of environment and prototype count gets its own wandb run:
-- `single_proto3` → Single environment with 3 prototypes
-- `single_proto4` → Single environment with 4 prototypes
+- `single_proto3`  Single environment with 3 prototypes
+- `single_proto4`  Single environment with 4 prototypes
 - ... (15 total runs)
 
 ## Viewing Your Experiments
@@ -200,12 +200,12 @@ In the wandb dashboard:
 
 ## Summary
 
-✅ **Entity configured**: `samieima`  
-✅ **Project created**: `schema-learning`  
-✅ **GitHub**: `mandanasmi`  
-✅ **Auto-logging enabled**: All metrics tracked  
-✅ **Model artifacts**: Best models saved  
-✅ **Dashboard ready**: https://wandb.ai/mandanasmi/schema-learning  
-✅ **Repository**: https://github.com/mandanasmi/MemorySchema
+ **Entity configured**: `samieima`  
+ **Project created**: `schema-learning`  
+ **GitHub**: `mandanasmi`  
+ **Auto-logging enabled**: All metrics tracked  
+ **Model artifacts**: Best models saved  
+ **Dashboard ready**: https://wandb.ai/mandanasmi/schema-learning  
+ **Repository**: https://github.com/mandanasmi/MemorySchema
 
-Your experiments will be beautifully tracked and easy to analyze! 📊
+Your experiments will be beautifully tracked and easy to analyze! 

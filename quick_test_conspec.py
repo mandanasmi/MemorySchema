@@ -11,18 +11,18 @@ import os
 try:
     import wandb
     WANDB_AVAILABLE = True
-    print("✅ Wandb is installed")
+    print(" Wandb is installed")
     
     # Check if logged in
     try:
         wandb.login(verify=True)
-        print("✅ Wandb is logged in")
+        print(" Wandb is logged in")
     except Exception as e:
-        print("⚠️  Wandb login required. Please run: wandb login")
+        print("  Wandb login required. Please run: wandb login")
         print("   Get your API key from: https://wandb.ai/authorize")
         WANDB_AVAILABLE = False
 except ImportError:
-    print("❌ Wandb not installed")
+    print(" Wandb not installed")
     WANDB_AVAILABLE = False
 
 from key_door_goal_base import create_key_door_goal_env
@@ -75,14 +75,14 @@ def quick_test(num_episodes=100, use_wandb=True):
                     'test': True
                 }
             )
-            print("✅ Wandb tracking enabled")
+            print(" Wandb tracking enabled")
             print(f"   Dashboard: {wandb.run.url}")
         except Exception as e:
-            print(f"⚠️  Wandb initialization failed: {e}")
+            print(f"  Wandb initialization failed: {e}")
             print("   Continuing without wandb tracking...")
             wandb_enabled = False
     else:
-        print("ℹ️  Training without wandb tracking")
+        print("�  Training without wandb tracking")
     
     print()
     
@@ -186,7 +186,7 @@ def quick_test(num_episodes=100, use_wandb=True):
           f"Failure: {len(conspec.memory.failure_memory)}")
     
     if wandb_enabled and wandb_run:
-        print(f"\n📊 View results at: {wandb.run.url}")
+        print(f"\n View results at: {wandb.run.url}")
         wandb.finish()
     
     return {
@@ -196,11 +196,11 @@ def quick_test(num_episodes=100, use_wandb=True):
 
 
 if __name__ == "__main__":
-    print("\n🚀 Starting Quick ConSpec Test")
+    print("\n Starting Quick ConSpec Test")
     print("="*60)
     
     if not WANDB_AVAILABLE:
-        print("\n⚠️  To enable wandb tracking, run:")
+        print("\n  To enable wandb tracking, run:")
         print("   wandb login")
         print("   (Get API key from: https://wandb.ai/authorize)")
         print("\nContinuing with local training only...")
@@ -208,4 +208,4 @@ if __name__ == "__main__":
     
     results = quick_test(num_episodes=100)
     
-    print(f"\n✅ Test complete! Success rate: {results['success_rate']:.2%}")
+    print(f"\n Test complete! Success rate: {results['success_rate']:.2%}")

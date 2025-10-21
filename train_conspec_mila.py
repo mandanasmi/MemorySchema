@@ -170,7 +170,7 @@ def save_checkpoint(checkpoint_dir, env_type, num_prototypes, episode, policy, t
         }
     }, latest_path)
     
-    print(f"💾 Checkpoint saved: {checkpoint_path}")
+    print(f" Checkpoint saved: {checkpoint_path}")
     return checkpoint_path
 
 
@@ -180,7 +180,7 @@ def load_checkpoint(checkpoint_path, policy, trainer, conspec, device):
         print(f"No checkpoint found at {checkpoint_path}")
         return None
     
-    print(f"📂 Loading checkpoint from {checkpoint_path}")
+    print(f"� Loading checkpoint from {checkpoint_path}")
     checkpoint = torch.load(checkpoint_path, map_location=device)
     
     # Load model states
@@ -197,7 +197,7 @@ def load_checkpoint(checkpoint_path, policy, trainer, conspec, device):
     for traj in checkpoint['memory']['failure_memory']:
         conspec.memory.failure_memory.append(traj)
     
-    print(f"✅ Checkpoint loaded from episode {checkpoint['episode']}")
+    print(f" Checkpoint loaded from episode {checkpoint['episode']}")
     print(f"   Best success rate: {checkpoint['best_success_rate']:.3f}")
     print(f"   Memory - Success: {len(conspec.memory.success_memory)}, "
           f"Failure: {len(conspec.memory.failure_memory)}")
@@ -252,14 +252,14 @@ def train_conspec_on_environment(env_type, num_prototypes, num_episodes=3000, de
             start_episode = checkpoint['episode'] + 1
             training_stats = checkpoint['training_stats']
             best_success_rate = checkpoint['best_success_rate']
-            print(f"🔄 Resuming training from episode {start_episode}")
+            print(f" Resuming training from episode {start_episode}")
     else:
-        print(f"🆕 Starting new training from scratch")
+        print(f" Starting new training from scratch")
     
     print(f"Environment: {env.__class__.__name__}")
     print(f"Grid size: {env.width}x{env.height}")
     print(f"Mission: {env.mission}")
-    print(f"Training episodes: {start_episode} → {num_episodes}")
+    print(f"Training episodes: {start_episode}  {num_episodes}")
     print()
     
     # Initialize wandb run
@@ -497,8 +497,8 @@ def main():
         print(f"  Best success rate: {result['best_success_rate']:.3f}")
         print(f"  Final success rate: {final_success:.3f}")
     
-    print(f"\n📁 All checkpoints saved to {args.checkpoint_dir}/")
-    print(f"📊 Summary saved to {summary_path}")
+    print(f"\n All checkpoints saved to {args.checkpoint_dir}/")
+    print(f" Summary saved to {summary_path}")
     
     return all_results
 

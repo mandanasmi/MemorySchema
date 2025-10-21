@@ -126,7 +126,7 @@ class KeyDoorGoalDemo:
     
     def run_episode_demo(self):
         """Run episode visualization demo"""
-        print("🎬 Episode Visualization Demo")
+        print("� Episode Visualization Demo")
         print("=" * 50)
         
         # Visualize episode for basic environment
@@ -209,14 +209,14 @@ class KeyDoorGoalDemo:
         ]
         
         for demo_name, demo_func in demos:
-            print(f"\n🎯 Running {demo_name}...")
+            print(f"\n Running {demo_name}...")
             try:
                 demo_func()
             except Exception as e:
-                print(f"❌ Error in {demo_name}: {e}")
+                print(f" Error in {demo_name}: {e}")
         
-        print("\n🎉 All demos completed!")
-        print("\n📋 Summary:")
+        print("\n All demos completed!")
+        print("\n Summary:")
         print("   Single Key-Door-Goal Environment")
         print("   Double Key-Door Environment")
         print("   Triple Key-Door Environment")

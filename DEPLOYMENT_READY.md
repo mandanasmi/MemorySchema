@@ -1,6 +1,6 @@
-# 🚀 ConSpec Schema Learning - Ready for Mila Deployment
+#  ConSpec Schema Learning - Ready for Mila Deployment
 
-## ✅ Repository Cleaned and Ready!
+##  Repository Cleaned and Ready!
 
 All redundant files have been removed. The repository is now production-ready for Mila cluster deployment.
 
@@ -14,7 +14,7 @@ All redundant files have been removed. The repository is now production-ready fo
 **Wandb Dashboard:** https://wandb.ai/mandanasmi/schema-learning  
 **GitHub Repository:** https://github.com/mandanasmi/MemorySchema
 
-## 📋 Quick Deployment Checklist
+##  Quick Deployment Checklist
 
 ### On Mila Cluster (Run these commands):
 
@@ -71,7 +71,7 @@ tail -f logs/conspec_*.out
 # https://wandb.ai/mandanasmi/schema-learning
 ```
 
-## 📁 Repository Structure (Cleaned)
+##  Repository Structure (Cleaned)
 
 ### Core Environment Files
 - `key_door_goal_base.py` - Environment definitions
@@ -117,7 +117,7 @@ tail -f logs/conspec_*.out
 - `requirements.txt` - All Python dependencies
 - `.gitignore` - Git ignore rules
 
-## 🎯 What the Training Will Do
+##  What the Training Will Do
 
 ### Experiments (15 total)
 - **3 Environments:** Single, Double, Triple
@@ -138,17 +138,17 @@ tail -f logs/conspec_*.out
 ### Wandb Tracking
 All metrics logged to: https://wandb.ai/mandanasmi/schema-learning
 
-## 📊 Expected Output
+##  Expected Output
 
 ### Checkpoints Directory
 ```
 checkpoints/
-├── checkpoint_single_proto3_latest.pth
-├── checkpoint_single_proto3_ep500.pth
-├── checkpoint_single_proto3_ep1000.pth
-├── best_model_single_proto3.pth
-├── ... (for all 15 configurations)
-└── training_summary.json
+ checkpoint_single_proto3_latest.pth
+ checkpoint_single_proto3_ep500.pth
+ checkpoint_single_proto3_ep1000.pth
+ best_model_single_proto3.pth
+ ... (for all 15 configurations)
+ training_summary.json
 ```
 
 ### Wandb Dashboard
@@ -157,18 +157,18 @@ checkpoints/
 - Model artifacts
 - Comparison tools
 
-## 🔍 Removed Redundant Files
+##  Removed Redundant Files
 
 The following files were removed to clean up the repository:
 
-1. ❌ `demo_conspec.py` → Replaced by `quick_test_conspec.py`
-2. ❌ `train_conspec.py` → Replaced by `train_conspec_mila.py`
-3. ❌ `train_and_analyze_conspec.py` → Replaced by `train_conspec_all_environments.py`
-4. ❌ `SETUP.md` → Merged into `MILA_SETUP.md`
-5. ❌ `KEY_DOOR_GOAL_README.md` → Content in main `README.md`
-6. ❌ `conspec_requirements.txt` → Merged into `requirements.txt`
+1.  `demo_conspec.py`  Replaced by `quick_test_conspec.py`
+2.  `train_conspec.py`  Replaced by `train_conspec_mila.py`
+3.  `train_and_analyze_conspec.py`  Replaced by `train_conspec_all_environments.py`
+4.  `SETUP.md`  Merged into `MILA_SETUP.md`
+5.  `KEY_DOOR_GOAL_README.md`  Content in main `README.md`
+6.  `conspec_requirements.txt`  Merged into `requirements.txt`
 
-## ⚡ Quick Start (Copy-Paste on Mila)
+##  Quick Start (Copy-Paste on Mila)
 
 ```bash
 cd ~
@@ -184,27 +184,27 @@ sbatch run_conspec_mila.sh
 squeue -u samieima
 ```
 
-## 📞 Support Files
+##  Support Files
 
 - `SUBMIT_TO_MILA.md` - Detailed submission guide
 - `deploy_to_mila.txt` - Command reference
 - `MILA_CONSPEC_INSTRUCTIONS.md` - Complete instructions
 
-## ✨ Status
+##  Status
 
-✅ **Repository cleaned**  
-✅ **Wandb configured** (entity: mandanasmi)  
-✅ **GPU-enabled batch script**  
-✅ **Checkpoint system ready**  
-✅ **All code pushed to GitHub**  
-✅ **Documentation complete**  
-✅ **Ready for Mila deployment**
+ **Repository cleaned**  
+ **Wandb configured** (entity: mandanasmi)  
+ **GPU-enabled batch script**  
+ **Checkpoint system ready**  
+ **All code pushed to GitHub**  
+ **Documentation complete**  
+ **Ready for Mila deployment**
 
-**Next Step:** SSH to Mila and run the commands above! 🚀
+**Next Step:** SSH to Mila and run the commands above! 
 
 ---
 
 **Last Updated:** 2025-10-21  
-**Status:** ✅ Production Ready  
+**Status:**  Production Ready  
 **Action Required:** Submit job on Mila cluster
 

@@ -320,7 +320,7 @@ def train_conspec_on_environment(env_type, num_episodes=2000, device='cpu',
                 save_checkpoints and 
                 best_policy_state is not None):
                 
-                print(f"\n🎉 POLICY CONVERGED! Saving optimal models...")
+                print(f"\n POLICY CONVERGED! Saving optimal models...")
                 print(f"Success rate: {recent_success_rate:.3f} (threshold: {convergence_threshold})")
                 
                 # Create checkpoints directory
@@ -353,7 +353,7 @@ def train_conspec_on_environment(env_type, num_episodes=2000, device='cpu',
                 with open(f'checkpoints/conspec_memory_{env_type}_env.pkl', 'wb') as f:
                     pickle.dump(best_conspec_state['memory'], f)
                 
-                print(f"✅ Models saved to checkpoints/ directory:")
+                print(f" Models saved to checkpoints/ directory:")
                 print(f"   - optimal_policy_{env_type}_env.pth")
                 print(f"   - optimal_conspec_{env_type}_env.pth") 
                 print(f"   - conspec_memory_{env_type}_env.pkl")
@@ -479,11 +479,11 @@ def main():
             print(f"  Final success rate: {final_success:.2f}")
             print(f"  Best success rate: {results['best_success_rate']:.2f}")
             print(f"  Total episodes: {len(results['episode_rewards'])}")
-            print(f"  Converged: {'✅' if converged else '❌'}")
+            print(f"  Converged: {'' if converged else ''}")
             print(f"  Successful trajectories: {len(results['successful_trajectories'])}")
             print(f"  Failed trajectories: {len(results['failed_trajectories'])}")
     
-    print(f"\n📁 All checkpoints saved to checkpoints/ directory!")
+    print(f"\n All checkpoints saved to checkpoints/ directory!")
     
     if use_wandb:
         # Log final summary to wandb
@@ -500,7 +500,7 @@ def main():
         )
         wandb.log({"training_summary": summary_table})
         
-        print(f"📊 Results logged to wandb: {wandb.run.url}")
+        print(f" Results logged to wandb: {wandb.run.url}")
         wandb.finish()
     
     return all_results

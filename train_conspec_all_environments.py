@@ -284,7 +284,7 @@ def train_conspec_on_environment(env_type, num_episodes=1000, device='cpu', save
                 save_checkpoints and 
                 best_policy_state is not None):
                 
-                print(f"\n🎉 POLICY CONVERGED! Saving optimal models...")
+                print(f"\n POLICY CONVERGED! Saving optimal models...")
                 print(f"Success rate: {recent_success_rate:.3f} (threshold: {convergence_threshold})")
                 
                 # Create checkpoints directory
@@ -317,7 +317,7 @@ def train_conspec_on_environment(env_type, num_episodes=1000, device='cpu', save
                 with open(f'checkpoints/conspec_memory_{env_type}_env.pkl', 'wb') as f:
                     pickle.dump(best_conspec_state['memory'], f)
                 
-                print(f"✅ Models saved to checkpoints/ directory:")
+                print(f" Models saved to checkpoints/ directory:")
                 print(f"   - optimal_policy_{env_type}_env.pth")
                 print(f"   - optimal_conspec_{env_type}_env.pth") 
                 print(f"   - conspec_memory_{env_type}_env.pkl")
@@ -435,19 +435,19 @@ def analyze_critical_features(conspec, successful_trajectories, failed_trajector
     
     if success_key_sim is not None:
         key_max_sim = np.max(success_key_sim, axis=1)
-        print(f"  Key states - Mean max similarity: {key_max_sim.mean():.4f} ± {key_max_sim.std():.4f}")
+        print(f"  Key states - Mean max similarity: {key_max_sim.mean():.4f} � {key_max_sim.std():.4f}")
     
     if success_door_sim is not None:
         door_max_sim = np.max(success_door_sim, axis=1)
-        print(f"  Door states - Mean max similarity: {door_max_sim.mean():.4f} ± {door_max_sim.std():.4f}")
+        print(f"  Door states - Mean max similarity: {door_max_sim.mean():.4f} � {door_max_sim.std():.4f}")
     
     if success_goal_sim is not None:
         goal_max_sim = np.max(success_goal_sim, axis=1)
-        print(f"  Goal states - Mean max similarity: {goal_max_sim.mean():.4f} ± {goal_max_sim.std():.4f}")
+        print(f"  Goal states - Mean max similarity: {goal_max_sim.mean():.4f} � {goal_max_sim.std():.4f}")
     
     if failure_stuck_sim is not None:
         stuck_max_sim = np.max(failure_stuck_sim, axis=1)
-        print(f"  Stuck states - Mean max similarity: {stuck_max_sim.mean():.4f} ± {stuck_max_sim.std():.4f}")
+        print(f"  Stuck states - Mean max similarity: {stuck_max_sim.mean():.4f} � {stuck_max_sim.std():.4f}")
     
     return {
         'success_key_features': success_key_features,
@@ -713,7 +713,7 @@ def create_performance_summary(all_results, save_dir='figures'):
                 f'{final_success:.2f}',
                 f'{avg_length:.1f}',
                 f'{total_episodes}',
-                '✅' if converged else '❌'
+                '' if converged else ''
             ])
     
     table = axes[1, 1].table(cellText=summary_data,
@@ -787,12 +787,12 @@ def main():
             print(f"\n{env_type.upper()} Environment:")
             print(f"  Final success rate: {final_success:.2f}")
             print(f"  Total episodes: {len(results['episode_rewards'])}")
-            print(f"  Converged: {'✅' if converged else '❌'}")
+            print(f"  Converged: {'' if converged else ''}")
             print(f"  Successful trajectories: {len(results['successful_trajectories'])}")
             print(f"  Failed trajectories: {len(results['failed_trajectories'])}")
     
-    print(f"\n📁 All checkpoints saved to checkpoints/ directory!")
-    print(f"📊 All visualizations saved to figures/ directory!")
+    print(f"\n All checkpoints saved to checkpoints/ directory!")
+    print(f" All visualizations saved to figures/ directory!")
     
     return all_results, all_analyses
 
