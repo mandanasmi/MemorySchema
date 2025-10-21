@@ -16,7 +16,8 @@ else
 fi
 
 echo ""
-echo "Your wandb entity (username): samieima@mila.quebec (samieima)"
+echo "Your wandb entity (username): mandanasmi"
+echo "Mila email: samieima@mila.quebec"
 echo "Project name: schema-learning"
 echo "GitHub: mandanasmi"
 echo ""
@@ -40,7 +41,7 @@ echo "Setup Complete!"
 echo "=========================================="
 echo ""
 echo "Your experiments will be logged to:"
-echo "  https://wandb.ai/samieima/schema-learning"
+echo "  https://wandb.ai/mandanasmi/schema-learning"
 echo ""
 echo "GitHub repository: https://github.com/mandanasmi/MemorySchema"
 echo ""

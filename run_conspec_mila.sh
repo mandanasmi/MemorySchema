@@ -29,13 +29,21 @@ pip install wandb --quiet
 # Login to wandb (make sure you've run 'wandb login' before submitting)
 # wandb login <your-api-key>
 
-# Run training with hyperparameter search
+# Display GPU information
+echo "=========================================="
 echo "Starting ConSpec training on Mila cluster"
+echo "=========================================="
 echo "Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURM_NODELIST"
 echo "Time: $(date)"
+echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
+echo "Wandb Entity: mandanasmi"
+echo "Wandb Project: schema-learning"
+echo "Dashboard: https://wandb.ai/mandanasmi/schema-learning"
 echo "=========================================="
+echo ""
 
+# Run training with hyperparameter search on GPU
 python train_conspec_mila.py \
     --env all \
     --episodes 5000 \

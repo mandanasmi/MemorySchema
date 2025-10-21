@@ -14,7 +14,7 @@
 ## Links
 
 **GitHub Repository:** https://github.com/mandanasmi/MemorySchema  
-**Wandb Dashboard:** https://wandb.ai/samieima/schema-learning  
+**Wandb Dashboard:** https://wandb.ai/mandanasmi/schema-learning  
 **Wandb Project:** schema-learning
 
 ## Project Structure
@@ -66,7 +66,7 @@ squeue -u $USER
 tail -f logs/conspec_*.out
 
 # View wandb dashboard
-# https://wandb.ai/samieima/schema-learning
+# https://wandb.ai/mandanasmi/schema-learning
 ```
 
 ## Key Features
@@ -152,7 +152,7 @@ If you use this work, please cite:
 **Repository:**
 ```
 GitHub: https://github.com/mandanasmi/MemorySchema
-Wandb: https://wandb.ai/samieima/schema-learning
+Wandb: https://wandb.ai/mandanasmi/schema-learning
 ```
 
 ## Contact

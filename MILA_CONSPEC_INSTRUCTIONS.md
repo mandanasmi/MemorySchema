@@ -32,7 +32,7 @@ Get your API key from: https://wandb.ai/authorize
 - Entity (username): `samieima@mila.quebec` → `samieima`
 - Project: `schema-learning`
 - GitHub: `mandanasmi`
-- Dashboard URL: https://wandb.ai/samieima/schema-learning
+- Dashboard URL: https://wandb.ai/mandanasmi/schema-learning
 
 Or use the setup script:
 ```bash
@@ -75,7 +75,7 @@ tail -f logs/conspec_<job_id>.err
 ```
 
 ### View wandb dashboard
-Go to: https://wandb.ai/samieima/schema-learning
+Go to: https://wandb.ai/mandanasmi/schema-learning
 
 All your experiments will be tracked here in real-time!
 

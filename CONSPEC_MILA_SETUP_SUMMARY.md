@@ -37,7 +37,7 @@ source venv/bin/activate
 # wandb login  # API key from: https://wandb.ai/authorize
 
 # Your wandb dashboard:
-# https://wandb.ai/samieima/schema-learning
+# https://wandb.ai/mandanasmi/schema-learning
 # GitHub: https://github.com/mandanasmi/MemorySchema
 
 # 6. Submit the job
@@ -83,7 +83,7 @@ tail -f logs/conspec_<job_id>.out
 ```
 
 ### Wandb Dashboard
-Visit: https://wandb.ai/samieima/schema-learning
+Visit: https://wandb.ai/mandanasmi/schema-learning
 
 See all your experiments in real-time:
 - Episode rewards and success rates
