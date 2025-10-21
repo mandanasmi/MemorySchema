@@ -1,0 +1,107 @@
+# Copy and paste these commands on Mila cluster to deploy ConSpec training
+
+# ============================================
+# STEP 1: SSH to Mila
+# ============================================
+ssh samieima@mila.quebec
+
+
+# ============================================
+# STEP 2: Clone/Update Repository
+# ============================================
+cd ~
+
+# If first time:
+git clone https://github.com/mandanasmi/MemorySchema.git
+
+# If already cloned:
+cd ~/MemorySchema
+git pull origin main
+
+
+# ============================================
+# STEP 3: Setup Virtual Environment
+# ============================================
+cd ~/MemorySchema
+
+# Create venv (if not exists)
+python3.9 -m venv venv
+
+# Activate
+source venv/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install all dependencies
+pip install -r requirements.txt
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install scikit-learn wandb
+
+
+# ============================================
+# STEP 4: Login to Wandb
+# ============================================
+wandb login
+# Paste your API key from: https://wandb.ai/authorize
+
+
+# ============================================
+# STEP 5: Verify Setup
+# ============================================
+# Check wandb
+wandb verify
+
+# Check Python can import everything
+python -c "import torch; import wandb; from key_door_goal_base import create_key_door_goal_env; print('✅ All imports successful')"
+
+
+# ============================================
+# STEP 6: Create Directories
+# ============================================
+mkdir -p logs checkpoints figures
+
+
+# ============================================
+# STEP 7: Make Scripts Executable
+# ============================================
+chmod +x run_conspec_mila.sh setup_and_run_mila.sh setup_wandb.sh monitor_training.sh
+
+
+# ============================================
+# STEP 8: Submit Job to Slurm
+# ============================================
+sbatch run_conspec_mila.sh
+
+# You should see: "Submitted batch job XXXXXX"
+
+
+# ============================================
+# STEP 9: Monitor Job
+# ============================================
+# Check job status
+squeue -u samieima
+
+# View live output (replace JOBID with your actual job ID)
+tail -f logs/conspec_JOBID.out
+
+# View wandb dashboard
+# https://wandb.ai/mandanasmi/schema-learning
+
+
+# ============================================
+# USEFUL COMMANDS
+# ============================================
+
+# Cancel a job
+# scancel JOBID
+
+# Check detailed job info
+# scontrol show job JOBID
+
+# Check GPU availability
+# sinfo -p main --Format=NodeList,Gres,GresUsed
+
+# Interactive session for testing
+# salloc --gres=gpu:1 --cpus-per-task=4 --mem=16G --time=2:00:00
+
