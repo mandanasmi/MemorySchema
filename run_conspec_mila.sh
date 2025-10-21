@@ -16,18 +16,15 @@ module load python/3.9
 module load cuda/11.3
 module load libffi
 
-# Add local bin to PATH
+# Add local bin to PATH  
 export PATH=$HOME/.local/bin:$PATH
+export PYTHONPATH=$HOME/.local/lib/python3.9/site-packages:$PYTHONPATH
 
-# Navigate to project directory
-cd $SLURM_TMPDIR
-cp -r ~/MemorySchema .
-cd MemorySchema
+# Navigate to project directory (run directly from home, don't copy)
+cd ~/MemorySchema
 
-# Create logs directory if it doesn't exist
-mkdir -p logs
-
-# No need for venv, using system packages installed with --user flag
+# Create logs and checkpoints directories
+mkdir -p logs checkpoints figures
 
 # Login to wandb (make sure you've run 'wandb login' before submitting)
 # wandb login <your-api-key>
@@ -61,10 +58,5 @@ python3.9 -u train_conspec_mila.py \
 
 echo "=========================================="
 echo "Training completed at: $(date)"
-
-# Copy results back to home directory
-cp -r checkpoints ~/MemorySchema/
-cp -r logs ~/MemorySchema/
-
-echo "Results copied to ~/MemorySchema/checkpoints/"
+echo "Results saved in ~/MemorySchema/checkpoints/"
 
