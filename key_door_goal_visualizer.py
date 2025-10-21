@@ -512,7 +512,7 @@ def main():
     visualizer.compare_environments(save_path="key_door_goal_comparison.png")
     
     # Visualize episode
-    print("\n¬ Visualizing episode...")
+    print("\n  Visualizing episode...")
     env = create_key_door_goal_env("basic")
     visualizer.visualize_episode(env, max_steps=6, save_path="key_door_goal_episode.png")
     env.close()

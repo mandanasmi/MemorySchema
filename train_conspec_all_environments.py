@@ -435,19 +435,19 @@ def analyze_critical_features(conspec, successful_trajectories, failed_trajector
     
     if success_key_sim is not None:
         key_max_sim = np.max(success_key_sim, axis=1)
-        print(f"  Key states - Mean max similarity: {key_max_sim.mean():.4f} Â {key_max_sim.std():.4f}")
+        print(f"  Key states - Mean max similarity: {key_max_sim.mean():.4f}   {key_max_sim.std():.4f}")
     
     if success_door_sim is not None:
         door_max_sim = np.max(success_door_sim, axis=1)
-        print(f"  Door states - Mean max similarity: {door_max_sim.mean():.4f} Â {door_max_sim.std():.4f}")
+        print(f"  Door states - Mean max similarity: {door_max_sim.mean():.4f}   {door_max_sim.std():.4f}")
     
     if success_goal_sim is not None:
         goal_max_sim = np.max(success_goal_sim, axis=1)
-        print(f"  Goal states - Mean max similarity: {goal_max_sim.mean():.4f} Â {goal_max_sim.std():.4f}")
+        print(f"  Goal states - Mean max similarity: {goal_max_sim.mean():.4f}   {goal_max_sim.std():.4f}")
     
     if failure_stuck_sim is not None:
         stuck_max_sim = np.max(failure_stuck_sim, axis=1)
-        print(f"  Stuck states - Mean max similarity: {stuck_max_sim.mean():.4f} Â {stuck_max_sim.std():.4f}")
+        print(f"  Stuck states - Mean max similarity: {stuck_max_sim.mean():.4f}   {stuck_max_sim.std():.4f}")
     
     return {
         'success_key_features': success_key_features,

@@ -82,7 +82,7 @@ def quick_test(num_episodes=100, use_wandb=True):
             print("   Continuing without wandb tracking...")
             wandb_enabled = False
     else:
-        print("¹  Training without wandb tracking")
+        print("   Training without wandb tracking")
     
     print()
     

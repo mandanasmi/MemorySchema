@@ -58,7 +58,7 @@ def test_visualizer():
         env = create_key_door_goal_env("single", size=8)
         obs, info = env.reset()
         
-        print("  –¼  Testing basic environment visualization...")
+        print("      Testing basic environment visualization...")
         # Note: We won't actually show the plot in automated testing
         # visualizer.visualize_env(env, "Test Environment")
         print("   Visualization test passed")

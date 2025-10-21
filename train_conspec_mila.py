@@ -180,7 +180,7 @@ def load_checkpoint(checkpoint_path, policy, trainer, conspec, device):
         print(f"No checkpoint found at {checkpoint_path}")
         return None
     
-    print(f"‚ Loading checkpoint from {checkpoint_path}")
+    print(f"  Loading checkpoint from {checkpoint_path}")
     checkpoint = torch.load(checkpoint_path, map_location=device)
     
     # Load model states

@@ -126,7 +126,7 @@ class KeyDoorGoalDemo:
     
     def run_episode_demo(self):
         """Run episode visualization demo"""
-        print("¬ Episode Visualization Demo")
+        print("  Episode Visualization Demo")
         print("=" * 50)
         
         # Visualize episode for basic environment
