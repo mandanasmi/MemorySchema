@@ -3,8 +3,10 @@
 ## Your Wandb Configuration
 
 **Entity (Username):** `samieima@mila.quebec` → `samieima`  
-**Project Name:** `conspec-key-door-goal-mila`  
-**Dashboard URL:** https://wandb.ai/samieima/conspec-key-door-goal-mila
+**Project Name:** `schema-learning`  
+**GitHub:** `mandanasmi`  
+**Dashboard URL:** https://wandb.ai/samieima/schema-learning  
+**Repository:** https://github.com/mandanasmi/MemorySchema
 
 ## Setup on Mila
 
@@ -50,7 +52,7 @@ Each combination of environment and prototype count gets its own wandb run:
 ## Viewing Your Experiments
 
 ### Dashboard
-Go to: https://wandb.ai/samieima/conspec-key-door-goal-mila
+Go to: https://wandb.ai/samieima/schema-learning
 
 ### Features Available
 1. **Runs Table**: Compare all 15 configurations
@@ -184,7 +186,7 @@ wandb pull <run-id>
 # Or use Python API
 import wandb
 api = wandb.Api()
-runs = api.runs("samieima/conspec-key-door-goal-mila")
+runs = api.runs("samieima/schema-learning")
 for run in runs:
     print(f"{run.name}: {run.summary['best_success_rate']}")
 ```
@@ -199,9 +201,11 @@ In the wandb dashboard:
 ## Summary
 
 ✅ **Entity configured**: `samieima`  
-✅ **Project created**: `conspec-key-door-goal-mila`  
+✅ **Project created**: `schema-learning`  
+✅ **GitHub**: `mandanasmi`  
 ✅ **Auto-logging enabled**: All metrics tracked  
 ✅ **Model artifacts**: Best models saved  
-✅ **Dashboard ready**: https://wandb.ai/samieima/conspec-key-door-goal-mila
+✅ **Dashboard ready**: https://wandb.ai/samieima/schema-learning  
+✅ **Repository**: https://github.com/mandanasmi/MemorySchema
 
 Your experiments will be beautifully tracked and easy to analyze! 📊

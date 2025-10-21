@@ -37,7 +37,8 @@ source venv/bin/activate
 # wandb login  # API key from: https://wandb.ai/authorize
 
 # Your wandb dashboard:
-# https://wandb.ai/samieima/conspec-key-door-goal-mila
+# https://wandb.ai/samieima/schema-learning
+# GitHub: https://github.com/mandanasmi/MemorySchema
 
 # 6. Submit the job
 chmod +x run_conspec_mila.sh setup_and_run_mila.sh
@@ -82,7 +83,7 @@ tail -f logs/conspec_<job_id>.out
 ```
 
 ### Wandb Dashboard
-Visit: https://wandb.ai/samieima/conspec-key-door-goal-mila
+Visit: https://wandb.ai/samieima/schema-learning
 
 See all your experiments in real-time:
 - Episode rewards and success rates
@@ -90,6 +91,8 @@ See all your experiments in real-time:
 - Memory buffer statistics
 - Policy and value losses
 - Best success rates per configuration
+
+GitHub: https://github.com/mandanasmi/MemorySchema
 
 ## Key Features
 

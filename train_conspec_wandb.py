@@ -404,7 +404,7 @@ def main():
                        help='Which environment to train on')
     parser.add_argument('--episodes', type=int, default=2000, help='Number of training episodes')
     parser.add_argument('--no-wandb', action='store_true', help='Disable wandb logging')
-    parser.add_argument('--wandb-project', type=str, default='conspec-key-door-goal',
+    parser.add_argument('--wandb-project', type=str, default='schema-learning',
                        help='Wandb project name')
     parser.add_argument('--wandb-entity', type=str, default='samieima',
                        help='Wandb entity (username or team)')

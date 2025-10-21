@@ -30,8 +30,9 @@ Get your API key from: https://wandb.ai/authorize
 
 **Your wandb configuration:**
 - Entity (username): `samieima@mila.quebec` → `samieima`
-- Project: `conspec-key-door-goal-mila`
-- Dashboard URL: https://wandb.ai/samieima/conspec-key-door-goal-mila
+- Project: `schema-learning`
+- GitHub: `mandanasmi`
+- Dashboard URL: https://wandb.ai/samieima/schema-learning
 
 Or use the setup script:
 ```bash
@@ -74,9 +75,11 @@ tail -f logs/conspec_<job_id>.err
 ```
 
 ### View wandb dashboard
-Go to: https://wandb.ai/samieima/conspec-key-door-goal-mila
+Go to: https://wandb.ai/samieima/schema-learning
 
 All your experiments will be tracked here in real-time!
+
+GitHub Repository: https://github.com/mandanasmi/MemorySchema
 
 ## Managing Jobs
 

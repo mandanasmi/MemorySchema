@@ -16,8 +16,9 @@ else
 fi
 
 echo ""
-echo "Your wandb entity (username): samieima@mila.quebec"
-echo "Project name: conspec-key-door-goal-mila"
+echo "Your wandb entity (username): samieima@mila.quebec (samieima)"
+echo "Project name: schema-learning"
+echo "GitHub: mandanasmi"
 echo ""
 
 # Check if already logged in
@@ -39,7 +40,9 @@ echo "Setup Complete!"
 echo "=========================================="
 echo ""
 echo "Your experiments will be logged to:"
-echo "  https://wandb.ai/samieima/conspec-key-door-goal-mila"
+echo "  https://wandb.ai/samieima/schema-learning"
+echo ""
+echo "GitHub repository: https://github.com/mandanasmi/MemorySchema"
 echo ""
 echo "To run training with wandb:"
 echo "  python train_conspec_mila.py --env all --episodes 5000 --min-prototypes 3 --max-prototypes 7"
