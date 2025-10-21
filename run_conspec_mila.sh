@@ -11,6 +11,10 @@
 # Mila-specific modules
 module load python/3.9
 module load cuda/11.3
+module load libffi
+
+# Add local bin to PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Navigate to project directory
 cd $SLURM_TMPDIR
@@ -20,11 +24,7 @@ cd MemorySchema
 # Create logs directory if it doesn't exist
 mkdir -p logs
 
-# Activate virtual environment
-source venv/bin/activate
-
-# Install additional dependencies if needed
-pip install wandb --quiet
+# No need for venv, using system packages installed with --user flag
 
 # Login to wandb (make sure you've run 'wandb login' before submitting)
 # wandb login <your-api-key>
