@@ -8,6 +8,9 @@
 #SBATCH --gres=gpu:1
 #SBATCH --partition=main
 
+set -e  # Exit on error
+set -x  # Print commands
+
 # Mila-specific modules
 module load python/3.9
 module load cuda/11.3
