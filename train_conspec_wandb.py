@@ -406,7 +406,7 @@ def main():
     parser.add_argument('--no-wandb', action='store_true', help='Disable wandb logging')
     parser.add_argument('--wandb-project', type=str, default='conspec-key-door-goal',
                        help='Wandb project name')
-    parser.add_argument('--wandb-entity', type=str, default=None,
+    parser.add_argument('--wandb-entity', type=str, default='samieima',
                        help='Wandb entity (username or team)')
     parser.add_argument('--device', type=str, default='cpu', choices=['cpu', 'cuda'],
                        help='Device to use for training')

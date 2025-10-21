@@ -30,12 +30,14 @@ cd ~/MemorySchema
 # 3. Activate virtual environment
 source venv/bin/activate
 
-# 4. Install wandb
-pip install wandb
+# 4. Setup wandb
+./setup_wandb.sh
+# Or manually:
+# pip install wandb
+# wandb login  # API key from: https://wandb.ai/authorize
 
-# 5. Login to wandb
-wandb login
-# Get API key from: https://wandb.ai/authorize
+# Your wandb dashboard:
+# https://wandb.ai/samieima/conspec-key-door-goal-mila
 
 # 6. Submit the job
 chmod +x run_conspec_mila.sh setup_and_run_mila.sh
@@ -80,7 +82,14 @@ tail -f logs/conspec_<job_id>.out
 ```
 
 ### Wandb Dashboard
-Visit: https://wandb.ai/ to see real-time metrics
+Visit: https://wandb.ai/samieima/conspec-key-door-goal-mila
+
+See all your experiments in real-time:
+- Episode rewards and success rates
+- Intrinsic rewards from ConSpec
+- Memory buffer statistics
+- Policy and value losses
+- Best success rates per configuration
 
 ## Key Features
 

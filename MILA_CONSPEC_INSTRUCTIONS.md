@@ -28,6 +28,16 @@ wandb login
 ```
 Get your API key from: https://wandb.ai/authorize
 
+**Your wandb configuration:**
+- Entity (username): `samieima@mila.quebec` → `samieima`
+- Project: `conspec-key-door-goal-mila`
+- Dashboard URL: https://wandb.ai/samieima/conspec-key-door-goal-mila
+
+Or use the setup script:
+```bash
+./setup_wandb.sh
+```
+
 ### 6. Setup and submit the job
 ```bash
 chmod +x setup_and_run_mila.sh
@@ -64,7 +74,9 @@ tail -f logs/conspec_<job_id>.err
 ```
 
 ### View wandb dashboard
-Go to: https://wandb.ai/
+Go to: https://wandb.ai/samieima/conspec-key-door-goal-mila
+
+All your experiments will be tracked here in real-time!
 
 ## Managing Jobs
 

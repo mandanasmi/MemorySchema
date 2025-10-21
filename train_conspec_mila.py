@@ -267,6 +267,7 @@ def train_conspec_on_environment(env_type, num_prototypes, num_episodes=3000, de
     if use_wandb and WANDB_AVAILABLE:
         wandb_run = wandb.init(
             project='conspec-key-door-goal-mila',
+            entity='samieima',
             name=f'{env_type}_proto{num_prototypes}_{datetime.now().strftime("%Y%m%d_%H%M%S")}',
             config={
                 'env_type': env_type,
