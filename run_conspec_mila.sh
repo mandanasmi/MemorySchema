@@ -40,11 +40,15 @@ echo "GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 echo "Wandb Entity: mandanasmi"
 echo "Wandb Project: schema-learning"
 echo "Dashboard: https://wandb.ai/mandanasmi/schema-learning"
+echo "Working directory: $(pwd)"
+echo "Python version: $(python3.9 --version)"
+echo "PyTorch available: $(python3.9 -c 'import torch; print(torch.__version__)' 2>&1 || echo 'NOT INSTALLED')"
 echo "=========================================="
 echo ""
 
 # Run training with hyperparameter search on GPU
-python train_conspec_mila.py \
+echo "Launching training script..."
+python3.9 -u train_conspec_mila.py \
     --env all \
     --episodes 5000 \
     --min-prototypes 3 \
