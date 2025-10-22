@@ -6,8 +6,8 @@ This script demonstrates all the key-door-goal environments with interactive exa
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-from key_door_goal_base import create_key_door_goal_env
-from key_door_goal_visualizer import KeyDoorGoalVisualizer
+from environments.key_door_goal_base import create_key_door_goal_env
+from environments.key_door_goal_visualizer import KeyDoorGoalVisualizer
 from minigrid.core.actions import Actions
 
 
