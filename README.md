@@ -6,6 +6,15 @@ Learning schemas using reinforcement learning and generative modelling with comp
 
 This repository provides a collection of reinforcement learning environments based on the key-door-goal concept, built using the MiniGrid framework. These environments are designed for learning schemas and spatial reasoning through reinforcement learning.
 
+## Repository Structure
+
+### Branches
+
+- **`main`**: Main development branch with core environments and infrastructure
+- **`conspec`**: ConSpec algorithm implementation for intrinsic motivation and critical feature learning
+- **`dag-gflownet`**: DAG-GFlowNet integration for learning posterior distributions over causal graphs
+- **`mila-cluster-backup`**: Backup of original Mila cluster state
+
 ## Key Features
 
 - **3 Modular Environment Types**: Single, Double, and Triple key-door-goal environments
