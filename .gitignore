@@ -45,6 +45,9 @@ figures/*.png
 
 # DAG-GFlowNet
 dag_gflownet_src/.git/
+rl_dag_gflownet/.git/
 *.npz
+*.npy
 trajectories/
 graph_results/
+hyperparam_search_results/
