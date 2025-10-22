@@ -85,13 +85,40 @@ class BaseKeyDoorGoalEnv(MiniGridEnv):
         self.agent_dir = direction
     
     def step(self, action):
-        """Execute one step in the environment"""
+        """Execute one step in the environment with proper reward shaping"""
+        # Store previous state for reward calculation
+        prev_carrying = self.carrying
+        
+        # Check door state before action
+        fwd_pos = self.front_pos
+        fwd_cell = self.grid.get(*fwd_pos) if fwd_pos else None
+        door_was_closed = isinstance(fwd_cell, Door) and not fwd_cell.is_open if fwd_cell else False
+        
         obs, reward, terminated, truncated, info = super().step(action)
         
-        # Check if the agent has reached a goal
-        if self.grid.get(*self.agent_pos) and isinstance(self.grid.get(*self.agent_pos), Goal):
-            reward = self._reward()
+        # Reset reward (remove default step penalty)
+        reward = 0.0
+        info['event'] = None
+        
+        # Reward for picking up a key
+        if self.carrying and self.carrying != prev_carrying:
+            reward = 0.5  # Intermediate reward for key pickup
+            info['event'] = 'key_pickup'
+            print(f"Key picked up! Reward: {reward}")
+        
+        # Reward for opening a door (check if it was just opened)
+        if door_was_closed and isinstance(fwd_cell, Door) and fwd_cell.is_open:
+            reward = 0.5  # Intermediate reward for opening door
+            info['event'] = 'door_opened'
+            print(f"Door opened! Reward: {reward}")
+        
+        # Large reward for reaching a goal
+        agent_cell = self.grid.get(*self.agent_pos)
+        if agent_cell and isinstance(agent_cell, Goal):
+            reward = 1.0  # Final reward for reaching goal
             terminated = True
+            info['event'] = 'goal_reached'
+            print(f"Goal reached! Reward: {reward}")
         
         return obs, reward, terminated, truncated, info
 
@@ -178,8 +205,63 @@ class TripleKeyDoorGoalEnv(BaseKeyDoorGoalEnv):
     Room 3: Purple goal (more rewarding, accessible via purple door)
     """
     
+    def __init__(self, size=10, max_steps=None, **kwargs):
+        super().__init__(size, max_steps, **kwargs)
+        self.green_goal_reached = False
+    
+    def reset(self, **kwargs):
+        self.green_goal_reached = False
+        return super().reset(**kwargs)
+    
     def _gen_mission(self):
         return "Pick up green key to open green door and reach green goal, then pick up purple key to open purple door and reach the more rewarding purple goal"
+    
+    def step(self, action):
+        """Override step to handle multiple goals"""
+        # Store previous state
+        prev_carrying = self.carrying
+        
+        # Check door state before action
+        fwd_pos = self.front_pos
+        fwd_cell = self.grid.get(*fwd_pos) if fwd_pos else None
+        door_was_closed = isinstance(fwd_cell, Door) and not fwd_cell.is_open if fwd_cell else False
+        
+        obs, reward, terminated, truncated, info = MiniGridEnv.step(self, action)
+        
+        # Reset reward
+        reward = 0.0
+        info['event'] = None
+        
+        # Reward for picking up a key
+        if self.carrying and self.carrying != prev_carrying:
+            reward = 0.5
+            info['event'] = 'key_pickup'
+            print(f"Key picked up! Reward: {reward}")
+        
+        # Reward for opening a door
+        if door_was_closed and isinstance(fwd_cell, Door) and fwd_cell.is_open:
+            reward = 0.5
+            info['event'] = 'door_opened'
+            print(f"Door opened! Reward: {reward}")
+        
+        # Check for goal reaching
+        agent_cell = self.grid.get(*self.agent_pos)
+        if agent_cell and isinstance(agent_cell, Goal):
+            if agent_cell.color == "green" and not self.green_goal_reached:
+                # First goal (green) - intermediate reward
+                reward = 0.7
+                self.green_goal_reached = True
+                info['event'] = 'green_goal_reached'
+                print(f"Green goal reached! Reward: {reward}")
+                # Don't terminate, continue to purple goal
+            elif agent_cell.color == "purple":
+                # Final goal (purple) - highest reward
+                reward = 1.0
+                terminated = True
+                info['event'] = 'purple_goal_reached'
+                print(f"Purple goal reached! Reward: {reward}")
+        
+        return obs, reward, terminated, truncated, info
     
     def _gen_grid(self, width, height):
         self.grid = Grid(width, height)
