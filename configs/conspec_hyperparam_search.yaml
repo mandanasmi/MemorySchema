@@ -1,0 +1,79 @@
+# ConSpec Hyperparameter Search Configuration
+# This file defines the search space for hyperparameter optimization
+
+environments:
+  - single
+  - double
+  - triple
+
+# Hyperparameters to search
+hyperparameters:
+  # Number of prototypes for ConSpec memory
+  num_prototypes:
+    type: choice
+    values: [3, 5, 7, 10]
+  
+  # Learning rate for policy
+  learning_rate:
+    type: loguniform
+    min: 0.0001
+    max: 0.01
+  
+  # ConSpec-specific intrinsic reward scaling
+  intrinsic_reward_scale:
+    type: uniform
+    min: 0.1
+    max: 1.0
+  
+  # Discount factor
+  gamma:
+    type: choice
+    values: [0.95, 0.98, 0.99]
+  
+  # Epsilon decay for exploration
+  epsilon_decay:
+    type: uniform
+    min: 0.99
+    max: 0.999
+  
+  # Hidden dimension for encoder
+  hidden_dim:
+    type: choice
+    values: [64, 128, 256]
+  
+  # LSTM hidden size
+  lstm_hidden_size:
+    type: choice
+    values: [64, 128, 256]
+  
+  # Batch size
+  batch_size:
+    type: choice
+    values: [32, 64, 128, 256]
+  
+  # Memory buffer size
+  memory_size:
+    type: choice
+    values: [1000, 5000, 10000]
+
+# Training configuration
+training:
+  episodes: 5000
+  max_steps_per_episode: 400
+  eval_frequency: 500
+  checkpoint_frequency: 1000
+  
+# Search configuration
+search:
+  method: random  # Options: random, grid, bayesian
+  n_trials: 50    # Number of random trials per environment
+  optimization_metric: mean_reward
+  optimization_direction: maximize
+  
+# Logging
+logging:
+  wandb_project: schema-learning
+  wandb_entity: mandanasmi
+  log_frequency: 100
+  save_best_only: true
+
