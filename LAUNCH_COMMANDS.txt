@@ -1,0 +1,107 @@
+================================================================================
+COPY-PASTE COMMANDS TO LAUNCH HYPERPARAMETER SEARCH ON MILA
+================================================================================
+
+Step 1: SSH to Mila
+-------------------
+ssh mila
+
+
+Step 2: Run the launch script (RECOMMENDED)
+--------------------------------------------
+cd ~/MemorySchema && bash scripts/launch_hyperparam_search.sh
+
+
+OR Step 2 Alternative: Manual commands
+---------------------------------------
+cd ~/MemorySchema
+git checkout conspec
+git pull origin conspec
+module load python/3.9 cuda/11.3 libffi
+mkdir -p logs
+wandb login
+sbatch scripts/run_hyperparam_search_mila.sh
+
+
+Step 3: Monitor the job
+------------------------
+# Check if job is running
+squeue -u $USER
+
+# Get the job ID from the output, then view logs
+tail -f logs/hypersearch_<JOB_ID>.out
+
+# Or check all recent logs
+ls -lht logs/
+
+
+Step 4: View results on Wandb
+------------------------------
+Open in browser: https://wandb.ai/mandanasmi/schema-learning
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+If job fails immediately:
+-------------------------
+# Run diagnostics
+bash scripts/diagnose_mila_setup.sh
+
+# Check error logs
+tail -100 logs/hypersearch_*.err
+
+# Install missing dependencies
+pip install --user pyyaml torch wandb
+
+# Test locally first
+python3.9 scripts/quick_hyperparam_test.py
+
+
+If wandb login fails:
+---------------------
+# Get API key from: https://wandb.ai/authorize
+# Then run:
+wandb login
+# Paste the API key when prompted
+
+
+If job is pending:
+------------------
+# Check queue status
+squeue -u $USER
+squeue --start
+
+# Check available resources
+sinfo
+
+
+To cancel a job:
+----------------
+scancel <JOB_ID>
+
+
+================================================================================
+QUICK REFERENCE
+================================================================================
+
+Job management:
+  squeue -u $USER                    # Check your jobs
+  scancel <JOB_ID>                   # Cancel job
+  scontrol show job <JOB_ID>         # Job details
+  sacct -u $USER                     # Job history
+
+View logs:
+  ls -lht logs/                      # List logs
+  tail -f logs/hypersearch_*.out     # Live output
+  tail -f logs/hypersearch_*.err     # Live errors
+  cat logs/hypersearch_*.out         # Full output
+
+Wandb:
+  wandb status                       # Check login status
+  wandb login                        # Login
+  # Dashboard: https://wandb.ai/mandanasmi/schema-learning
+
+================================================================================
+
