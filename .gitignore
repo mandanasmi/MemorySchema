@@ -42,3 +42,9 @@ figures/*.png
 !figures/*_environments*.png
 !figures/equal_priority_graph_environments.png
 !figures/graph_dependency_environments.png
+
+# DAG-GFlowNet
+dag_gflownet_src/.git/
+*.npz
+trajectories/
+graph_results/
